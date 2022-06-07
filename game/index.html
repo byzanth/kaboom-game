@@ -1,18 +1,33 @@
 <html>
     <head>
         <script type="module">
-            import kaboom from "https://unpkg.com/kaboom/dist/kaboom.mjs"
+            import kaboom from "https://unpkg.com/kaboom/dist/kaboom.mjs";
             kaboom({
-                width: 320,
-                height: 240,
+                width: 800,
+                height: 600,
                 font: "sinko",
                 canvas: document.querySelector("#kaboom_canvas"),
-                background: [ 0, 0, 255, ],
-            })
+            });
+            // Load assets
+            loadSprite("background", "assets/sprites/simpleBackground.png");
+            loadSprite(
+                "grass_platform",
+                "assets/kennyGameAssets/ground_grass.png"
+            );
+            loadSprite("moon", "assets/kennyGameAssets/moon_full.png");
+            loadSprite("cloud", "assets/kennyGameAssets/cloud1.png");
+            loadSprite("coin", "assets/kennyGameAssets/gold_1.png");
+            loadSprite("player", "assets/sprites/forager.png");
+            // background
+            const background = add([sprite("background"),pos(0, 0)]);
+            const moon = add([sprite("moon"), pos(200, 50), scale(2, 2)]);
+            const cloud1 = add([sprite("cloud"), pos(50, 120)]);
+            const cloud2 = add([sprite("cloud"), pos(100, 20), scale(2, 2)]);
+            // movement
+
         </script>
     </head>
     <body>
         <canvas id="kaboom_canvas"></canvas>
     </body>
 </html>
-
